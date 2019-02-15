@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  composer:
+    image: composer:latest
+    container_name: composer
+    working_dir: /app
+    restart: 'no'
+    volumes:
+      - type: bind
+        source: ./app
+        target: /app
+      - "~/.ssh/known_hosts:/root/.ssh/known_hosts"
+      - "~/.ssh/id_rsa_github:/root/.ssh/id_rsa"
